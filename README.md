@@ -8,26 +8,7 @@ Despliega una VPC completa con dos instancias EC2 (pública y privada), habilita
 
 ## 🏗️ Arquitectura
 
-```mermaid
-graph LR
-    Internet((🌐 Internet)) --> IGW[Internet Gateway]
-    IGW --> PublicSubnet
-
-    subgraph VPC["VPC — 10.15.0.0/16"]
-        subgraph PublicSubnet["Subnet Pública — 10.15.1.0/24"]
-            EC2Pub[🖥️ EC2 Public\n10.15.1.17]
-            NAT[NAT Gateway\nEIP: 18.214.129.206]
-        end
-        subgraph PrivateSubnet["Subnet Privada — 10.15.2.0/24"]
-            EC2Priv[🖥️ EC2 Private\n10.15.2.33]
-        end
-        EC2Pub -->|ping / SSH| EC2Priv
-        EC2Priv --> NAT
-    end
-
-    VPC -->|Flow Logs\nParquet / 10 min| S3[(🪣 S3 Bucket\nFlow Logs)]
-    S3 -->|SQL queries| Athena[🔎 Amazon Athena\njhon_a15_flowlogs_db]
-    Athena --> Results[(🪣 S3 Bucket\nQuery Results)]
+![Architecture](docs/architecture.png)
 ```
 
 ## 📁 Estructura del proyecto
