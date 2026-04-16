@@ -1,0 +1,30 @@
+# Terraform state — NUNCA subir al repo
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Variables con secretos — NUNCA subir al repo
+terraform.tfvars
+*.tfvars
+*.tfvars.json
+
+# Archivos generados
+*.zip
+*.log
+crash.log
+crash.*.log
+
+# Archivos del OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
