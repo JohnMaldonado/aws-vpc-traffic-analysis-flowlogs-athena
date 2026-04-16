@@ -23,7 +23,7 @@ aws-vpc-traffic-analysis-flowlogs-athena/
 │   ├── flow_logs_analysis.sql   # 5 queries de análisis de seguridad
 │   └── traffic_generator.sh    # Script para generar tráfico en EC2
 └── docs/
-    └── Assignment15_VPC_FlowLogs_Athena_v2.docx
+└── architecture.png
 ```
 
 ## ⚡ Recursos desplegados
