@@ -9,11 +9,10 @@ Despliega una VPC completa con dos instancias EC2 (pública y privada), habilita
 ## 🏗️ Arquitectura
 
 ![Architecture](docs/architecture.png)
-```
 
 ## 📁 Estructura del proyecto
 
-```
+```text
 aws-vpc-traffic-analysis-flowlogs-athena/
 ├── terraform/
 │   ├── main.tf           # Recursos AWS: VPC, EC2, S3, Flow Log, Athena
@@ -23,7 +22,7 @@ aws-vpc-traffic-analysis-flowlogs-athena/
 │   ├── flow_logs_analysis.sql   # 5 queries de análisis de seguridad
 │   └── traffic_generator.sh    # Script para generar tráfico en EC2
 └── docs/
-└── architecture.png
+    └── architecture.png
 ```
 
 ## ⚡ Recursos desplegados
@@ -76,7 +75,7 @@ SELECT protocol, COUNT(*), SUM(bytes) FROM vpc_flow_logs GROUP BY protocol;
 
 ```bash
 # 1. Clonar el repo
-git clone https://github.com/TU_USUARIO/aws-vpc-traffic-analysis-flowlogs-athena.git
+git clone https://github.com/JohnMaldonado/aws-vpc-traffic-analysis-flowlogs-athena.git
 cd aws-vpc-traffic-analysis-flowlogs-athena/terraform
 
 # 2. Crear terraform.tfvars con tu SSH key (NO subir al repo)
@@ -97,9 +96,9 @@ terraform output
 ssh -i ~/.ssh/id_ed25519 ec2-user@$(terraform output -raw public_ec2_public_ip)
 
 # Desde el EC2 público:
-ping -c 20 <private_ip>              # genera flows ICMP
+ping -c 20 <private_ip>                  # genera flows ICMP
 wget -q -O /dev/null https://amazon.com  # genera flows TCP/HTTPS
-nc -zv <private_ip> 443              # genera flows REJECT
+nc -zv <private_ip> 443                  # genera flows REJECT
 ```
 
 ### Verificar logs en S3 (esperar ~10 min)
