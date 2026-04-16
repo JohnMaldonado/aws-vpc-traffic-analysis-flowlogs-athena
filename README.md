@@ -144,11 +144,3 @@ terraform destroy -auto-approve
 | S3 almacenamiento | < $0.001 |
 | Athena queries | < $0.001 |
 | **Total** | **~$0.26** |
-
-## 🏷️ Tags
-
-Todos los recursos tienen tags:
-- `Project`: Assignment-15
-- `ManagedBy`: Terraform
-- `Student`: Hector-Jonathan-Maldonado-Vega
-- `Batch`: 10.28
